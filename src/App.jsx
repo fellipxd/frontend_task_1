@@ -35,7 +35,7 @@ const IntroSequence = ({ onComplete }) => {
 
 const App = () => {
   const [showIntro, setShowIntro] = useState(true);
-  const [targetColorIndex, setTargetColorIndex] = useState(null);
+  const [targetColor, setTargetColor] = useState(null);
   const [options, setOptions] = useState([]);
   const [score, setScore] = useState(0);
   const [gameStatus, setGameStatus] = useState("");
@@ -44,14 +44,17 @@ const App = () => {
   const [isHighlighting, setIsHighlighting] = useState(true);
 
   const initializeGame = () => {
+    // Select 6 random colors
     const shuffledColors = [...COLORS].sort(() => 0.5 - Math.random());
     const selectedColors = shuffledColors.slice(0, 6);
 
+    // Randomly choose an index to highlight
     const highlightIndex = Math.floor(Math.random() * 6);
+    const chosenTargetColor = selectedColors[highlightIndex];
 
     setOptions(selectedColors);
     setHighlightedIndex(highlightIndex);
-    setTargetColorIndex(highlightIndex);
+    setTargetColor(chosenTargetColor); // Store the target color value
     setGameStatus("");
     setIsAnimating(false);
     setIsHighlighting(true);
@@ -64,12 +67,13 @@ const App = () => {
   }, [showIntro]);
 
   useEffect(() => {
-    let highlightTimer, shuffleTimer;
+    let highlightTimer;
 
     if (isHighlighting) {
       highlightTimer = setTimeout(() => {
         setIsHighlighting(false);
 
+        // Shuffle the options while keeping the target color the same token
         const shuffledColors = [...options].sort(() => 0.5 - Math.random());
         setOptions(shuffledColors);
       }, 2000);
@@ -77,7 +81,6 @@ const App = () => {
 
     return () => {
       if (highlightTimer) clearTimeout(highlightTimer);
-      if (shuffleTimer) clearTimeout(shuffleTimer);
     };
   }, [isHighlighting, options]);
 
@@ -86,7 +89,8 @@ const App = () => {
 
     setIsAnimating(true);
 
-    if (index === targetColorIndex) {
+    // Compare the clicked color value to the stored target color
+    if (options[index] === targetColor) {
       setScore((prev) => prev + 1);
       setGameStatus("Correct! You remembered! 🏆");
       setTimeout(() => {
