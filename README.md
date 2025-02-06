@@ -1,8 +1,17 @@
-# React + Vite
+# Color Quest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Color Quest is a simple memory game where players must remember a highlighted color before the options are shuffled and then select it correctly to earn points.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- Intro Animation: A welcome screen that introduces the game.
+
+- Memory Challenge: Players must remember a highlighted color before the shuffle.
+
+- Scoring System: Players earn points for correct selections.
+
+- Game Status Updates: Visual feedback on correct or incorrect choices.
+
+- Responsive UI: Works on both desktop and mobile screens.
