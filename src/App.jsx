@@ -23,9 +23,9 @@ const IntroSequence = ({ onComplete }) => {
   return (
     <div className="fixed inset-0 bg-black flex items-center justify-center">
       <div className="text-center">
-        {step >= 1 && <div className={`text-6xl press-start-2p-regular text-yellow-400 mb-8 ${step === 1 ? "scale-in" : ""}`}>WELCOME TO</div>}
+        {step >= 1 && <div className={`text-3xl md:text-4xl lg:text-6xl press-start-2p-regular text-yellow-400 mb-8 ${step === 1 ? "scale-in" : ""}`}>WELCOME TO</div>}
 
-        {step >= 2 && <div className={`text-8xl press-start-2p-regular text-green-400 mb-8 ${step === 2 ? "scale-in" : ""}`}>COLOR QUEST</div>}
+        {step >= 2 && <div className={`text-3xl md:text-4xl lg:text-8xl press-start-2p-regular text-green-400 mb-8 ${step === 2 ? "scale-in" : ""}`}>COLOR QUEST</div>}
 
         {step >= 3 && <div className={`text-xl press-start-2p-regular text-red-400 mt-4 ${step === 3 ? "animate-pulse" : ""}`}>Art by Midas</div>}
       </div>
@@ -101,7 +101,7 @@ const App = () => {
       setTimeout(() => {
         setGameStatus("");
         setIsAnimating(false);
-      }, 1500);
+      }, 150000);
     }
   };
 
@@ -111,7 +111,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-4 flex flex-col items-center justify-center font-mono">
-      <h1 className="text-4xl mb-8 text-yellow-400 animate-pulse press-start-2p-regular">COLOR QUEST</h1>
+      <h1 className="text-2xl md:text-3xl lg:text-5xl mb-8 text-yellow-400 animate-pulse press-start-2p-regular">COLOR QUEST</h1>
 
       <div data-testid="gameInstructions" className="text-center mb-6 px-4 py-2 border-2 border-blue-500 rounded-lg bg-blue-900">
         Memorize the Highlighted Box, Then Select it After Shuffling!
