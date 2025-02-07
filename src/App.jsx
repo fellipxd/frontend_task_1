@@ -101,7 +101,7 @@ const App = () => {
       setTimeout(() => {
         setGameStatus("");
         setIsAnimating(false);
-      }, 150000);
+      }, 1500);
     }
   };
 
